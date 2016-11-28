@@ -47,12 +47,13 @@ def room2():
         print('You sneak up to him and assassinate him.')
         print("Do you want the guard's sword or keep the shooter's gun?")
         weapon = input('Which do you want?: ')
-        if weapon.lower() == 'gun':
+        if weapon.lower() in 'the shooters gun':
             print('You keep the gun and move on')
-        elif weapon.lower() == 'Sword':
+            room3()
+        elif weapon.lower() in 'the guards sword':
             inventory = inventory.lower() - 'gun'
             inventory = inventory + 'Sword'
-        room3()
+            room3()
         else:
             print('You leave both behind')
             print('You go into a fight bare fisted and get killed')
@@ -134,7 +135,7 @@ def room5():
         health = health - health_loss
         if health <= 0:
             print('You have died')
-            room5()
+            room5()            
 
     elif answer5.lower() == 'b':
         print('You choose to fight... and succeed, you deal',boss_damage,'damage')
@@ -154,16 +155,8 @@ def room5():
             print('You have won!')
 
     else:
-        print("You don't move and he kills you")
-        room5()
-
-    room6()
-
-def room6():
-    global health_loss, boss_health, boss_damage, health, inventory
-    status()
-    
-        
+        print('You have taken too long he kills you')
+        room1()        
     
     
 
